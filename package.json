@@ -1,7 +1,7 @@
 {
   "name": "og-image-generator",
   "version": "1.0.0",
-  "description": "",
+  "description": "OG image generation using @vercel/og on the edge",
   "main": "index.js",
   "scripts": {
     "deploy": "vercel deploy"
@@ -10,7 +10,7 @@
   "author": "Anurag Roy <anuragroy@duck.com> (https://anuragroy.dev/)",
   "license": "MIT",
   "dependencies": {
-    "@vercel/og": "^0.0.20"
+    "@vercel/og": "^0.0.21"
   },
   "devDependencies": {
     "typescript": "^4.8.4"
