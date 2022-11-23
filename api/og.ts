@@ -15,8 +15,10 @@ function arrayBufferToBase64Url(buffer: ArrayBuffer, mimeType: string) {
 }
 
 export default async function (request: Request) {
+  const website = 'anuragroy.dev';
   const { origin, searchParams } = new URL(request.url);
 
+  // Load all custom assets (fonts, images) concurrently
   const [sFontData, cdFontData, avFontData, memojiUrl] = await Promise.all([
     fetch(`${origin}/assets/Satoshi.ttf`).then((res) => res.arrayBuffer()),
     fetch(`${origin}/assets/ClashDisplay.ttf`).then((res) => res.arrayBuffer()),
@@ -26,14 +28,16 @@ export default async function (request: Request) {
       .then((buffer) => arrayBufferToBase64Url(buffer, 'image/png')),
   ]);
 
+  // get content from query params
   const title = searchParams.has('title')
-    ? searchParams.get('title')?.slice(0, 30)
-    : 'Hello, World!';
+    ? searchParams.get('title')
+    : 'OG Image';
 
   const description = searchParams.has('description')
-    ? searchParams.get('description')?.slice(0, 100)
-    : '';
+    ? searchParams.get('description')
+    : 'Add `title` and `description` to the URL as query params to populate the card with your own content.';
 
+  // No JSX, this is pain 🥲
   return new ImageResponse(
     {
       type: 'div',
@@ -75,7 +79,14 @@ export default async function (request: Request) {
                   props: {
                     tw: 'text-5xl text-rose-600 mr-auto',
                     style: { fontFamily: 'AloeVera' },
-                    children: 'anuragroy.dev',
+                    children: website,
+                  },
+                },
+                {
+                  type: 'span',
+                  props: {
+                    tw: 'text-5xl',
+                    children: '🐦',
                   },
                 },
               ],
