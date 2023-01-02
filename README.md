@@ -4,7 +4,7 @@ This is an example of generating dynamic Open Graph (OG) images on the edge usin
 
 ## Example
 
-<img src="https://og-image-generator-anuragroy.vercel.app/api/og?title=TailwindCSS%20with%20@next/font&description=Here%27s%20how%20to%20integrate%20the%20new%20@next/font%20in%20Next.js%2013%20with%20TailwindCSS">
+![og](https://user-images.githubusercontent.com/53750093/210263101-18610f1e-6c43-46ca-bd28-d07edbb61ae8.png)
 
 The above image was generated with `/api/og?title=TailwindCSS%20with%20@next/font&description=Here%27s%20how%20to%20integrate%20the%20new%20@next/font%20in%20Next.js%2013%20with%20TailwindCSS`.
 
